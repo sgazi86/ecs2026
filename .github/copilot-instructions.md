@@ -1,5 +1,5 @@
 ## Language
-I am working in the [node/python/dotnet] folder of this repo.
+I am working in the python folder of this repo.
 
 ## Code style
 - Use async/await instead of callbacks or raw promises
@@ -8,6 +8,6 @@ I am working in the [node/python/dotnet] folder of this repo.
 
 ## Testing
 - Always suggest a test alongside any new function
-- Use [Jest/pytest/xUnit] as the test framework
+- Use pytest as the test framework
 
 End every message with an encouraging message.
