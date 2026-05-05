@@ -3,8 +3,8 @@
 # Lab 3: Add the workflow structure
 # The steps for each job are already written. Your task is to add the
 # structural YAML that makes this a working workflow:
-#
-#   - name          — give the workflow a display name
+
+# - name            - workflow name
 #   - on            — add triggers so it runs on push to main and on pull_request
 #   - jobs          — wrap each group of steps in a proper job with:
 #       - runs-on   — which runner to use (ubuntu-latest)
@@ -14,10 +14,15 @@
 # See the Lab 3 instructions for details.
 
 # Lab 3: Add a workflow name here
+name: CI
 
 # Lab 3: Add triggers — right now only manual trigger is set
 on:
   workflow_dispatch:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
 
 # Lab 3: Define jobs — each group of steps below needs to be wrapped
 # in a proper job with runs-on, defaults (working-directory), and steps.
@@ -31,13 +36,21 @@ on:
 #      - run: npm ci
 #      - run: npm test
 
-# ── Python steps (should run in the python/ directory) ──
-#      - uses: actions/checkout@v4
-#      - uses: actions/setup-python@v5
-#        with:
-#          python-version: "3.12"
-#      - run: pip install -r requirements.txt
-#      - run: pytest --tb=short
+
+jobs:
+  python:
+    name: Python
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: python
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install -r requirements.txt
+      - run: pytest --tb=short
 
 # ── .NET steps (should run in the dotnet/ directory) ──
 #      - uses: actions/checkout@v4
