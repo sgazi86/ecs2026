@@ -1,3 +1,4 @@
+Sener
 # Creating Apps with GitHub — AI Experiment Log
 
 A hands-on workshop where you create a repo from this template, open a Codespace, and across five labs: set up your dev environment, configure Copilot, implement a feature, build a CI workflow, and deploy to GitHub Pages. By the end of the day you have a live personal dashboard showing your AI experiment results.
